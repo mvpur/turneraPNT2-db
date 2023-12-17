@@ -25,6 +25,7 @@ crearUsuario = async (req,res) => {
           horarioInicioAtencion: esPaciente ? null : horarioInicioAtencion, 
           horarioFinalAtencion: esPaciente ? null : horarioFinalAtencion, 
       });
+        console.log("Usuario creado correctamente");
         res.status(200).send('Usuario agregado correctamente');
     }catch(error){
         res.status(500).send('Error en el servidor - Usuario no creado' + error);
@@ -44,6 +45,7 @@ login =  async (req, res) => {
             }
           })
 
+          const id = usuario.id;
           const nombre = usuario.nombre;
           const email = usuario.email;
           const apellido = usuario.apellido;
@@ -54,7 +56,7 @@ login =  async (req, res) => {
           
           console.log(usuario)
     
-          res.status(200).send({ usuario, turnos, nombre, email, apellido,  esPaciente: usuario.esPaciente, especialidad, horarioFinalAtencion, horarioInicioAtencion});
+          res.status(200).send({ usuario, turnos, id, nombre, email, apellido,  esPaciente, especialidad, horarioFinalAtencion, horarioInicioAtencion});
         } else {
           res.status(404).send('Usuario invalido');
         }
