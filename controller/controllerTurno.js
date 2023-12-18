@@ -8,7 +8,7 @@ agregarTurno = async (req, res) => {
 
     console.log("Fecha y Hora:", fechaHora);
 
-    // buscar si el turno esta tomado
+    // buscar si el turno esta tomado por fecha y médico
     const turnoTomado = await Turno.findOne({ where: { fechaHora } });
 
     if (turnoTomado) {

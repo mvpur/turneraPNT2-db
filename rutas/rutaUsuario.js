@@ -11,6 +11,7 @@ router.get('/todosUsuarios',ControllerUsuario.obtenerUsuarios);
 router.get('/pacientes',ControllerUsuario.obtenerPacientes);
 router.get('/medicos',ControllerUsuario.obtenerMedicos);
 router.get('/:id',ControllerUsuario.obtenerUsuario);
+router.get('/especialidad/:especialidad',ControllerUsuario.obtenerMedicosEspecialidad);
 
 
 module.exports = router;
