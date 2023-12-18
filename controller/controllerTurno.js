@@ -4,19 +4,19 @@ const Turno = require("../modelos/modelTurno");
 
 agregarTurno = async (req, res) => {
   try {
-    const { fechaHora, id_medico, id_paciente } = req.body;
+    const { fecha, hora, id_medico, id_paciente } = req.body;
 
-    console.log("Fecha y Hora:", fechaHora);
+    console.log("Fecha y Hora:", fecha, hora);
 
     // buscar si el turno esta tomado por fecha y médico
-    const turnoTomado = await Turno.findOne({ where: { fechaHora } });
+    const turnoTomado = await Turno.findOne({ where: { fecha, hora } });
 
     if (turnoTomado) {
       return res.status(404).send("El turno ya fue tomado");
     }
 
     // crear turno
-    const turno = await Turno.create({ fechaHora, id_medico, id_paciente });
+    const turno = await Turno.create({ fecha, hora, id_medico, id_paciente });
 
     res.status(200).send("Turno agregado correctamente");
   } catch (error) {

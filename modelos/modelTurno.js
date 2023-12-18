@@ -8,8 +8,12 @@ const Turno = sequelize.define('Turno', {
         autoIncrement: true,
         primaryKey: true,
     },
-    fechaHora: {
-        type: DataTypes.DATE,
+    fecha: {
+        type: DataTypes.DATEONLY,
+        allowNull: false, // Asegúrate de que la fechaHora no sea nula
+    },   
+    hora: {
+        type: DataTypes.TIME,
         allowNull: false, // Asegúrate de que la fechaHora no sea nula
     },   
     id_medico: DataTypes.INTEGER,
